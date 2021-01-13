@@ -27,13 +27,40 @@
 header.App-header > div2 {
   position: relative;
   bottom: 220px;
-  font-size: 70px;
+  font-size: 60px;
+  width: 930px;
+  font-family: serif;
 }
 
 header.App-header > div3 {
   position: relative;
-  bottom: 250px;
-  font-size: 40px;
+  bottom: 100px;
+  font-size: 25px;
+  width: 930px;
+  background-color: #282c34;
+  font-family: serif;
+}
+
+header.App-header > div6 {
+  position: relative;
+  bottom: 160px;
+  font-size: 25px;
+  width: 930px;
+  background-color: #282c34;
+  font-family: serif;
+}
+
+.second-menu {
+  background-color: #282c34;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+.item {
+  background-color: #282c34;
+  color: yellow;
+  justify-content: center;
 }
 
 .App-link {
