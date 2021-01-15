@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Display from "./Display";
+import PokeImage from "./PokeImage";
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
@@ -15,13 +16,10 @@ export default function PokeType({ url }) {
       })
 
       .then((data) => {
-        console.log("data : ", data.pokemon);
         const number = getRandomInt(data.pokemon.length);
         setPoke(data.pokemon[number]);
       });
   }, [url]);
-  console.log(poke);
-  console.log(url);
 
   if (!poke)
     return (
@@ -29,11 +27,13 @@ export default function PokeType({ url }) {
         <br></br>Aucun pokemon n'appartient à ce type :(<br></br>
       </div>
     );
+  console.log("URL2 : ", poke.pokemon.url);
   return (
     <>
       <div>
         <br></br>
         Voici votre pokemon : {poke.pokemon.name}
+        <PokeImage url={poke.pokemon.url} />
         <br></br>
       </div>
     </>

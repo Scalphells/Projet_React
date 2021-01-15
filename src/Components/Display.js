@@ -1,27 +1,33 @@
-import React from "react";
+import React, { useEffect, useMemo } from "react";
 import PokeType from "./PokeType";
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-export default function Display({ info, day, types }) {
-  if (!info || !types.length) return null;
+const weekdays = [
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+  "sunday",
+];
 
-  const weekdays = [
-    "monday",
-    "tuesday",
-    "wednesday",
-    "thursday",
-    "friday",
-    "saturday",
-    "sunday",
-  ];
-  const number =
-    (weekdays.findIndex((weekday) => weekday === info.weekday) *
-      Math.ceil(types.length / 7) +
-      getRandomInt(Math.ceil(types.length / 7))) %
-    types.length;
+export default function Display({ info, day, types }) {
+  let number = useMemo(() => {
+    if (!info || !types.length) return null;
+
+    return (
+      (weekdays.findIndex((weekday) => weekday === info.weekday) *
+        Math.ceil(types.length / 7) +
+        getRandomInt(Math.ceil(types.length / 7))) %
+      types.length
+    );
+  }, [info, types]);
+
+  if (!info || !types.length) return null;
 
   return (
     <>

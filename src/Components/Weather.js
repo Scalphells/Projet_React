@@ -13,7 +13,6 @@ export default function Weather() {
       })
 
       .then((data) => {
-        console.log(data);
         setTypes(data.results);
       });
   }, []);
